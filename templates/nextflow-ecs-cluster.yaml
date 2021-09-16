@@ -84,7 +84,7 @@ Resources:
           MinimumScalingStepSize: 1
           MaximumScalingStepSize: 1
           TargetCapacity: 90
-        ManagedTerminationProtection: DISABLED
+        ManagedTerminationProtection: ENABLED
 
   EcsRole:
     Type: AWS::IAM::Role
@@ -162,6 +162,7 @@ Resources:
       TerminationPolicies:
         - OldestLaunchConfiguration
         - OldestInstance
+      NewInstancesProtectedFromScaleIn: true
       MetricsCollection:
         - Granularity: 1Minute
 
